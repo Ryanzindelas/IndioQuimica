@@ -1,0 +1,622 @@
+:root {
+  --noite: #0c1032;
+  --indigo: #1f2680;
+  --anil: #4a3fd8;
+  --violeta: #9b7dff;
+  --prata: #d4d9e6;
+  --nevoa: #eef0f8;
+  --tinta: #161a3a;
+
+  --titulo: "Bricolage Grotesque", "Trebuchet MS", sans-serif;
+  --texto: "Source Serif 4", Georgia, serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 72px;
+}
+
+body {
+  font: 1.1rem/1.7 var(--texto);
+  color: var(--tinta);
+  background: var(--nevoa);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--titulo);
+  line-height: 1.1;
+}
+
+a {
+  color: var(--anil);
+}
+
+:focus-visible {
+  outline: 3px solid var(--violeta);
+  outline-offset: 3px;
+}
+
+/* =========================
+   MENU
+========================= */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--noite);
+  border-bottom: 1px solid var(--indigo);
+}
+
+.barra {
+  max-width: 1100px;
+  margin: auto;
+  padding: .8rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  color: var(--prata);
+  font-family: var(--titulo);
+  font-size: 1.4rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.logo span {
+  color: var(--violeta);
+}
+
+nav ul {
+  display: flex;
+  gap: 1.3rem;
+  list-style: none;
+}
+
+nav a {
+  color: var(--prata);
+  font-family: var(--titulo);
+  font-size: .95rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: var(--violeta);
+}
+
+/* Botão do menu mobile */
+
+#btn-menu {
+  display: none;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--violeta);
+  border-radius: 6px;
+  background: none;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+#btn-menu span {
+  width: 22px;
+  height: 2px;
+  background: var(--prata);
+  transition: .25s;
+}
+
+#btn-menu.aberto span:first-child {
+  transform: translateY(7px) rotate(45deg);
+}
+
+#btn-menu.aberto span:nth-child(2) {
+  opacity: 0;
+}
+
+#btn-menu.aberto span:last-child {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 4.5rem 1.25rem 4rem;
+  background: var(--noite);
+  color: var(--prata);
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 62%;
+  width: 4px;
+  background: var(--violeta);
+  box-shadow:
+    0 0 18px 6px var(--anil),
+    0 0 60px 20px rgb(74 63 216 / 45%);
+}
+
+.hero-in {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2rem;
+  align-items: center;
+}
+
+.hero h1 {
+  margin-bottom: 1rem;
+  color: #fff;
+  font-size: clamp(2.4rem, 7vw, 4.6rem);
+}
+
+.hero p {
+  max-width: 34rem;
+}
+
+.hero small {
+  display: block;
+  margin-top: 1.4rem;
+  color: var(--violeta);
+  font-family: var(--titulo);
+}
+
+/* Elemento In 49 */
+
+.tile {
+  position: relative;
+  z-index: 1;
+  width: clamp(150px, 22vw, 230px);
+  aspect-ratio: 1;
+  padding: .8rem 1rem;
+  border: 2px solid var(--prata);
+  border-radius: 10px;
+  background: var(--indigo);
+  color: #fff;
+  font-family: var(--titulo);
+}
+
+.tile strong,
+.tile em {
+  position: absolute;
+}
+
+.tile strong {
+  left: 1rem;
+  bottom: .4rem;
+  font-size: clamp(3.5rem, 9vw, 6rem);
+  font-weight: 800;
+  line-height: 1;
+}
+
+.tile em {
+  top: .8rem;
+  right: 1rem;
+  color: var(--prata);
+  font-size: .8rem;
+  font-style: normal;
+}
+
+/* =========================
+   SEÇÕES
+========================= */
+
+section {
+  padding: 4rem 1.25rem;
+}
+
+.miolo {
+  max-width: 820px;
+  margin: auto;
+}
+
+section h2 {
+  margin-bottom: 1.2rem;
+  padding-left: 1rem;
+  border-left: 5px solid var(--anil);
+  color: var(--indigo);
+  font-size: clamp(1.8rem, 4.5vw, 2.6rem);
+}
+
+section h3 {
+  margin: 1.6rem 0 .4rem;
+  color: var(--indigo);
+  font-size: 1.25rem;
+}
+
+p + p {
+  margin-top: 1rem;
+}
+
+/* Seções escuras */
+
+.escura {
+  background: var(--indigo);
+  color: var(--prata);
+}
+
+.escura h2,
+.escura h3 {
+  color: #fff;
+}
+
+.escura h2 {
+  border-color: var(--violeta);
+}
+
+.escura a {
+  color: var(--violeta);
+}
+
+/* Destaques */
+
+.destaque {
+  margin-top: 1.4rem;
+  padding: 1rem 1.2rem;
+  border-left: 5px solid var(--violeta);
+  border-radius: 0 8px 8px 0;
+  background: #fff;
+}
+
+.escura .destaque {
+  background: var(--noite);
+}
+
+/* =========================
+   TABELA
+========================= */
+
+.tabela {
+  width: 100%;
+  margin-top: 1rem;
+  border-collapse: collapse;
+  background: #fff;
+  color: var(--tinta);
+  font-size: 1rem;
+}
+
+.tabela th,
+.tabela td {
+  padding: .7rem .9rem;
+  text-align: left;
+  border-bottom: 1px solid var(--prata);
+  vertical-align: top;
+}
+
+.tabela thead th {
+  background: var(--indigo);
+  color: #fff;
+  font-family: var(--titulo);
+}
+
+.tabela tbody th {
+  width: 38%;
+  color: var(--indigo);
+  font-family: var(--titulo);
+  font-weight: 500;
+}
+
+.fonte {
+  margin-top: .6rem;
+  font-size: .9rem;
+  font-style: italic;
+}
+
+/* =========================
+   CARDS DE USOS
+========================= */
+
+.usos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.2rem;
+  margin-top: 1.5rem;
+}
+
+.uso {
+  padding: 1.3rem;
+  border-top: 4px solid var(--violeta);
+  border-radius: 10px;
+  background: var(--noite);
+  color: var(--prata);
+}
+
+.uso h3 {
+  margin-top: 0;
+  color: #fff;
+  font-size: 1.1rem;
+}
+
+.uso p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* =========================
+   DOCENTES
+========================= */
+
+.pessoas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.pessoa {
+  border: 1px solid var(--prata);
+  border-radius: 10px;
+  background: #fff;
+  text-align: center;
+}
+
+.pessoa .info {
+  padding: 1.5rem;
+}
+
+.pessoa h3 {
+  margin: 0;
+  color: var(--indigo);
+}
+
+.pessoa p {
+  color: var(--tinta);
+}
+
+/* =========================
+   FOTO — SOBRE MIM
+========================= */
+
+.sobre {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.sobre .foto {
+  position: relative;
+  display: grid;
+  aspect-ratio: 1;
+  place-items: center;
+  padding: 1rem;
+  border-radius: 10px;
+  background: var(--indigo);
+  color: var(--prata);
+  font-family: var(--titulo);
+  text-align: center;
+}
+
+.sobre .foto img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* =========================
+   GALERIA
+========================= */
+
+.clara {
+  background: #fff;
+}
+
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.2rem;
+  margin-top: 1.5rem;
+}
+
+.galeria figure {
+  overflow: hidden;
+  border: 1px solid var(--prata);
+  border-radius: 10px;
+  background: var(--nevoa);
+}
+
+.galeria img,
+.galeria svg {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: var(--noite);
+}
+
+.galeria figcaption {
+  padding: .8rem 1rem;
+  font-size: .95rem;
+  line-height: 1.5;
+}
+
+/* =========================
+   FONTES
+========================= */
+
+.fontes ol {
+  padding-left: 1.4rem;
+}
+
+.fontes li {
+  margin-bottom: .8rem;
+  font-size: 1rem;
+  overflow-wrap: anywhere;
+}
+
+/* =========================
+   RODAPÉ
+========================= */
+
+footer {
+  padding: 2rem 1.25rem;
+  background: var(--noite);
+  color: var(--prata);
+  font-family: var(--titulo);
+  font-size: .95rem;
+  text-align: center;
+}
+
+/* =========================
+   TABLET / CELULAR
+========================= */
+
+@media (max-width: 820px) {
+
+  #btn-menu {
+    display: flex;
+  }
+
+  nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: none;
+    background: var(--noite);
+    border-bottom: 2px solid var(--anil);
+  }
+
+  nav.aberto {
+    display: block;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  nav a {
+    display: block;
+    padding: 1rem 1.25rem;
+    border-top: 1px solid var(--indigo);
+  }
+
+  .hero::before {
+    left: auto;
+    right: 1.5rem;
+  }
+
+  .hero-in {
+    grid-template-columns: 1fr;
+  }
+
+  .tile {
+    width: 150px;
+  }
+
+  .sobre {
+    grid-template-columns: 1fr;
+  }
+
+  .sobre .foto {
+    max-width: 260px;
+  }
+}
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 560px) {
+
+  section {
+    padding: 3rem 1rem;
+  }
+
+  /* Tabela vira cards */
+
+  .tabela,
+  .tabela tbody {
+    display: block;
+    background: none;
+  }
+
+  .tabela thead {
+    display: none;
+  }
+
+  .tabela tbody {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .6rem;
+  }
+
+  .tabela tr {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: .15rem;
+    padding: .7rem .8rem;
+    border-left: 5px solid var(--anil);
+    border-radius: 8px;
+    background: #fff;
+  }
+
+  .tabela tr:nth-child(1),
+  .tabela tr:nth-child(11),
+  .tabela tr:nth-child(13) {
+    grid-column: 1 / -1;
+  }
+
+  .tabela th,
+  .tabela td {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+  }
+
+  .tabela tbody th {
+    color: #5a5f8f;
+    font-size: .8rem;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+
+  .tabela td {
+    color: var(--indigo);
+    font-family: var(--titulo);
+    font-size: 1.1rem;
+    font-weight: 800;
+    line-height: 1.25;
+  }
+}
+
+/* =========================
+   ACESSIBILIDADE
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  * {
+    transition: none !important;
+  }
+}
