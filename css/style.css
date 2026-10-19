@@ -369,6 +369,18 @@ p + p {
   background: #fff;
   text-align: center;
 }
+.pessoa .foto {
+  position: relative;
+  display: grid;
+  aspect-ratio: 1;
+  place-items: center;
+  padding: 1rem;
+  border-radius: 10px;
+  background: var(--indigo);
+  color: var(--prata);
+  font-family: var(--titulo);
+  text-align: center;
+}
 
 .pessoa .info {
   padding: 1.5rem;
